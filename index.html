@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#190f2a">
+<meta name="description" content="Every visitor gets €66 of store credit. The limited edition box costs €666, so checkout only opens once the discount reaches 90.1%. Two public coupons exist: NIGHT20 (20%) and NEWS30 (30%), and the server refuses a coupon that is already applied.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Buying a €666 Halloween box for €0">
+<meta property="og:description" content="Every visitor gets €66 of store credit. The limited edition box costs €666, so checkout only opens once the discount reaches 90.1%. Two public coupons exist: NIGHT20 (20%) and NEWS30 (30%), and the server refuses a coupon that is already applied.">
+<meta name="twitter:card" content="summary">
+<title>Buying a €666 Halloween box for €0 | Intigriti October Challenge 2026</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23190f2a'/%3E%3Cpath d='M16 6c5 0 8 4.5 8 9.5 0 6-4 10.5-8 10.5S8 21.5 8 15.5C8 10.5 11 6 16 6z' fill='%23ff9b2f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#190f2a;--ink2:#251641;--line:#3c2a63;--tx:#ebe4f8;--dim:#a99dc8;--news:#d98cff;--night:#ff9b2f;--newsd:#8a2fc4;--nightd:#b85500;--ok:#8be3a2;--bad:#ff6b7d;--paper:#ecebf2;--pi:#1a1330;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1100px 560px at 85% -8%,#3b1d66 0,transparent 62%),var(--ink);color:var(--tx);font:18px/1.68 "Bricolage Grotesque","Segoe UI Variable Text",system-ui,sans-serif}
+a{color:var(--night)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 28px}
+h1{font-size:clamp(2.6rem,5.2vw,5.6rem);line-height:1;letter-spacing:-.035em;margin:0 0 20px;font-weight:800;max-width:15ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;color:var(--dim);font-size:.9rem;margin:0 0 14px}
+.flag{font:inherit;color:var(--tx);background:none;border:1px dashed var(--line);border-radius:3px;padding:2px 8px;cursor:pointer}
+.flag span{font-family:var(--mono);font-size:.82rem;filter:blur(6px);transition:filter .3s}
+.flag.on span{filter:none}
+nav{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:.95rem}
+.hero{display:grid;grid-template-columns:1fr minmax(360px,480px);gap:52px;align-items:start;padding:20px 0 64px}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.hero p{max-width:64ch}
+.hint{border:1px solid var(--line);border-radius:3px;padding:10px 14px;background:var(--ink2);min-height:3.4em;margin:20px 0}
+#log{background:#0e0720;border:1px solid var(--line);font:12.5px/1.5 var(--mono);padding:12px;max-height:290px;overflow:auto;border-radius:3px}
+#log:empty::before{content:"Request log. Press a coupon to send a request.";color:var(--dim)}
+#log .rq{color:var(--tx);margin-top:8px}.rs{color:var(--ok);word-break:break-all}.rs.err{color:var(--bad)}
+.rc{position:relative;background:var(--paper);color:var(--pi);font:15px/1.55 var(--mono);padding:24px 24px 26px;transform:rotate(-.5deg);margin-bottom:30px}
+.rc::after{content:"";position:absolute;left:0;right:0;bottom:-13px;height:14px;background:linear-gradient(135deg,var(--paper) 25%,transparent 25%) -7px 0,linear-gradient(225deg,var(--paper) 25%,transparent 25%) -7px 0;background-size:14px 14px}
+.rc h2{font:700 15px var(--mono);margin:0 0 10px;letter-spacing:0}
+.row{display:flex;justify-content:space-between;gap:12px}
+.row.n{color:var(--newsd)}.row.g{color:var(--nightd)}
+hr{border:0;border-top:1px dashed #8b82a8;margin:10px 0}
+#tot{font-size:2.7rem;font-weight:600;line-height:1.1;display:block;text-align:right}
+.bar{position:relative;height:14px;background:var(--pi);margin:12px 0 4px}
+.bar i{position:absolute;top:0;bottom:0;transition:all .45s}
+#bn{background:var(--news);left:0}#bg{background:var(--night)}
+.bar b{position:absolute;top:-4px;bottom:-4px;left:90.09%;border-left:2px solid var(--bad)}
+.cap{font-size:11.5px;color:#5d5478}
+#cmp{font-size:12.5px;margin-top:8px}
+#paid{display:none;margin-top:10px;padding-top:10px;border-top:2px solid var(--pi)}
+#paid.on{display:block}#paid strong{word-break:break-all}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;color:var(--tx);cursor:pointer}
+button:focus-visible{outline:2px solid var(--night);outline-offset:2px}
+button:disabled{opacity:.4;cursor:not-allowed}
+.cp{background:var(--ink2);border:1px solid var(--line);padding:12px 14px;text-align:left;border-radius:3px}
+.cp b{display:block;font-family:var(--mono)}.cp span{font-size:.85rem;color:var(--dim)}
+.cp.news b{color:var(--news)}.cp.night b{color:var(--night)}
+.act{background:none;border:1px solid var(--line);padding:9px;border-radius:3px}
+.act.main{background:var(--night);border-color:var(--night);color:#1a0f2b;font-weight:700}
+.seg{display:flex;margin-top:14px;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.seg button{flex:1;background:none;border:0;padding:9px 6px;font-size:.88rem;color:var(--dim)}
+.seg button[aria-pressed=true]{background:var(--line);color:var(--tx)}
+.shake{animation:sh .3s}@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+section{padding:52px 0;border-top:1px solid var(--line)}
+section>*{max-width:74ch}
+h2.s{font-size:clamp(1.9rem,2.6vw,2.8rem);letter-spacing:-.025em;line-height:1.1;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:.92rem;max-width:none}
+td,th{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}
+td:first-child,td:nth-child(2),code{font-family:var(--mono);font-size:.85em}
+pre{background:#0e0720;border:1px solid var(--line);padding:16px;overflow:auto;font:14px/1.55 var(--mono);border-radius:3px;margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:none}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.two h3{margin:0 0 8px;font-size:1rem}
+.bad{border-color:var(--bad)}.good{border-color:var(--ok)}
+details{border-bottom:1px solid var(--line);padding:10px 0}
+summary{cursor:pointer;font-weight:700}
+details p{margin:8px 0 0;color:var(--dim)}
+li{margin:8px 0}
+footer{padding:36px 0 60px;color:var(--dim);border-top:1px solid var(--line);font-size:.92rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="meta"><span>Intigriti October Challenge 2026, "Halloween Store"</span><span>Severity: Medium (set by the challenge rules)</span>
+  <button class="flag" id="flag" aria-label="Reveal the flag">Flag <span>INTIGRITI{094638e6-ba2f-4c50-8bb4-41ced0d5debd}</span></button></div>
+  <h1>Buying a €666 Halloween box for €0</h1>
+  <nav><a href="#surface">The API</a><a href="#cause">Root cause</a><a href="#dead">Dead ends</a><a href="#impact">Impact</a><a href="#fix">Fix</a></nav>
+</header>
+
+<div class="hero">
+  <div>
+    <p>Every visitor gets €66 of store credit. The limited edition box costs €666, so checkout only opens once the discount reaches 90.1%. Two public coupons exist: <b style="color:var(--night)">NIGHT20</b> (20%) and <b style="color:var(--news)">NEWS30</b> (30%), and the server refuses a coupon that is already applied.</p>
+    <p>That refusal only looks at the coupon applied last. Put another code in between and the first one works again. The cart on the right replays the real behavior, so try it yourself.</p>
+    <div class="hint" id="hint" aria-live="polite"></div>
+    <div id="log" aria-label="Request log"></div>
+  </div>
+  <div>
+    <div class="rc" id="rc">
+      <h2>HALLOWEEN STORE, your cart</h2>
+      <div class="row"><span>The Midnight Collection</span><span>€666.00</span></div>
+      <div id="lines"></div>
+      <hr>
+      <span id="tot">€666.00</span>
+      <div class="bar" role="img" aria-label="Share of the price covered by discounts"><i id="bn"></i><i id="bg"></i><b></b></div>
+      <div class="cap">Red line: the discount needed so the €66.00 credit covers the order</div>
+      <div id="cmp"></div>
+      <div id="stat" class="cap" style="margin-top:6px"></div>
+      <div id="paid"><div>Order BLE-57EF913597 confirmed. Paid €0.00, credit untouched.</div><strong>INTIGRITI{094638e6-ba2f-4c50-8bb4-41ced0d5debd}</strong></div>
+    </div>
+    <div class="btns">
+      <button class="cp news" data-c="NEWS30"><b>NEWS30</b><span>30% off</span></button>
+      <button class="cp night" data-c="NIGHT20"><b>NIGHT20</b><span>20% off</span></button>
+      <button class="act main" id="replay" style="grid-column:1/3">Replay the exploit</button>
+      <button class="act" id="rs" style="grid-column:1/3">Reset the cart</button>
+    </div>
+    <div class="seg" role="group" aria-label="Server behavior">
+      <button id="mv" aria-pressed="true">Last coupon only (as found)</button>
+      <button id="mp" aria-pressed="false">Whole cart (patched)</button>
+    </div>
+    <p class="cap" style="color:var(--dim);margin:8px 0 0">A simulation of the behavior observed on the challenge API, not the live service.</p>
+  </div>
+</div>
+
+<section id="surface">
+  <h2 class="s">A small API with two numbers that matter</h2>
+  <p>The client code in <code>/static/js/app.js</code> lists the whole surface. The session starts with 6600 cents of credit and the target item costs 66600 cents.</p>
+  <table>
+    <tr><td>GET</td><td>/api/session</td><td>creates the session, returns the credit</td></tr>
+    <tr><td>GET</td><td>/api/products, /api/cart</td><td>catalogue, cart and totals</td></tr>
+    <tr><td>POST</td><td>/api/cart/items</td><td>add a product</td></tr>
+    <tr><td>POST</td><td>/api/cart/coupon, /remove</td><td>apply or remove a promotion code</td></tr>
+    <tr><td>POST</td><td>/api/checkout</td><td>place the order</td></tr>
+    <tr><td>POST</td><td>/api/newsletter</td><td>returns the NEWS30 welcome coupon for any valid email</td></tr>
+  </table>
+  <p>Both coupons stack additively, but 50% off leaves €333, five times the credit. A repeated <code>NEWS30</code> is rejected, yet each promotion in the response carries a <code>count</code> field and the UI renders <code>count &gt; 1</code> as "× count". That field only makes sense if repeats are a supported state, so the check had to be weaker than it looked.</p>
+  <table>
+    <tr><th>Request</th><th>Coupon</th><th>Total</th><th>Counts</th></tr>
+    <tr><td>1</td><td>NEWS30</td><td>46620</td><td>NEWS30 ×1</td></tr>
+    <tr><td>2</td><td>NIGHT20</td><td>33300</td><td>NEWS30 ×1, NIGHT20 ×1</td></tr>
+    <tr><td>3</td><td>NEWS30</td><td>13320</td><td>NEWS30 ×2, NIGHT20 ×1</td></tr>
+    <tr><td>4</td><td>NIGHT20</td><td>0</td><td>NEWS30 ×2, NIGHT20 ×2</td></tr>
+  </table>
+  <p>The discount is exactly 2 × 30% + 2 × 20% of the subtotal. The arithmetic is impeccable. The policy is not.</p>
+</section>
+
+<section id="cause">
+  <h2 class="s">The invariant that was never enforced</h2>
+  <p>The rule should be "a coupon code appears at most once in the cart". The server enforces "the same coupon cannot be applied twice in a row", the coupon equivalent of checking only the last item on a shopping list. This is reconstructed from outside, but it matches every request observed.</p>
+  <div class="two">
+    <div><h3>What the server does</h3><pre class="bad">if code == session.last_coupon:
+    return error("Coupon already applied.")
+apply(code)          # count += 1
+session.last_coupon = code</pre></div>
+    <div><h3>What it should do</h3><pre class="good">code = normalize(code)
+if code in session.coupons:
+    return error("Coupon already applied.")
+session.coupons.add(code)
+apply(code)</pre></div>
+  </div>
+</section>
+
+<section id="dead">
+  <h2 class="s">What did not work</h2>
+  <p>Ruling out the obvious bypasses first isolated the real issue. Open each one.</p>
+  <details><summary>Direct duplicate</summary><p>NEWS30 twice in a row is blocked, as intended.</p></details>
+  <details><summary>Case, whitespace and Unicode lookalikes</summary><p>Codes are normalized before the lookup, so a variant cannot create a second entry.</p></details>
+  <details><summary>Race condition</summary><p>20 parallel applications of one code gave one success and 19 "Coupon already applied". One winner, nineteen sore losers.</p></details>
+  <details><summary>Mass assignment and negative quantity</summary><p>Adding percent, amount, count, discount or price to the body changes nothing. The cart endpoint ignores quantity and always adds one unit.</p></details>
+  <details><summary>More coupons</summary><p>A small dictionary of seasonal names and numbers found no third code. Only NIGHT20 and NEWS30 exist.</p></details>
+  <p style="margin-top:14px">The only lever was the order in which the two legitimate coupons are applied.</p>
+</section>
+
+<section id="impact">
+  <h2 class="s">Impact</h2>
+  <p>An unauthenticated visitor gets the most expensive item for free and keeps the €66 credit. On a real storefront the same logic applies to every product and every customer: free orders, inventory drain and repeatable fraud, with no account required. The exploit is deterministic, takes four requests and needs no race or victim interaction, so a rate limit would not help.</p>
+  <p>The challenge rules require Medium and the store holds no real customer data, so the submission stays Medium. The class is price manipulation through a business logic error.</p>
+</section>
+
+<section id="fix">
+  <h2 class="s">Remediation</h2>
+  <ul>
+    <li>Reject a code that exists anywhere in the promotions list. Normalize it and keep applied codes in a set keyed by the normalized code.</li>
+    <li>Recompute the discount from the distinct promotions and cap the total at <code>max(0, subtotal - discount)</code> as defense in depth.</li>
+    <li>Make checkout recompute every amount from server-side cart state, never from client input (already the case here).</li>
+    <li>Add regression tests for repeated and alternating coupon sequences, and apply the same check to the removal path and any future stacking rule.</li>
+  </ul>
+  <h2 class="s" style="margin-top:34px">Takeaways</h2>
+  <ul>
+    <li>A duplicate check that only looks at the last element is not a duplicate check. When a response exposes a <code>count</code>, ask what state lets it exceed one.</li>
+    <li>Try interleaving, not just repeating. Many state bugs only appear when two values alternate.</li>
+    <li>Rule out the boring bypasses first. It makes the real bug obvious instead of speculative.</li>
+  </ul>
+</section>
+<footer>Thanks to Globules for the challenge and to Intigriti for organizing it.<br><span style="opacity:.55">Written by @w0iz3 on X.</span></footer>
+</div>
+
+<script>
+const SUB=66600,CR=6600,P={NEWS30:30,NIGHT20:20},FLAG="INTIGRITI{094638e6-ba2f-4c50-8bb4-41ced0d5debd}";
+const $=s=>document.querySelector(s),fmt=c=>"€"+(c/100).toFixed(2),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const calm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let promos=[],last=null,vuln=true,done=false,busy=false,shown=SUB,raf,errs=0;
+
+$("#flag").onclick=e=>e.currentTarget.classList.toggle("on");
+
+function calc(){let d=0;promos.forEach(p=>d+=Math.round(SUB*P[p.code]/100*p.count));d=Math.min(d,SUB);return{d,t:SUB-d}}
+function tween(to){
+  cancelAnimationFrame(raf);
+  if(calm){shown=to;$("#tot").textContent=fmt(to);return}
+  const from=shown,t0=performance.now();
+  (function f(t){const k=Math.min(1,(t-t0)/450);shown=from+(to-from)*(1-Math.pow(1-k,3));$("#tot").textContent=fmt(Math.round(shown));if(k<1)raf=requestAnimationFrame(f)})(t0);
+}
+function log(rq,rs,err){
+  const L=$("#log");
+  L.insertAdjacentHTML("beforeend",'<div class="rq"></div><div class="rs'+(err?" err":"")+'"></div>');
+  L.children[L.children.length-2].textContent=rq;L.lastChild.textContent=rs;
+  while(L.children.length>12)L.removeChild(L.firstChild);
+  L.scrollTop=L.scrollHeight;
+}
+function render(){
+  const{d,t}=calc(),n=promos.find(p=>p.code==="NEWS30"),g=promos.find(p=>p.code==="NIGHT20");
+  tween(t);
+  $("#lines").innerHTML=promos.map(p=>'<div class="row '+(p.code==="NEWS30"?"n":"g")+'"><span>'+p.code+" x"+p.count+"</span><span>-"+fmt(Math.round(SUB*P[p.code]/100*p.count))+"</span></div>").join("");
+  const nw=n?Math.round(SUB*.3*n.count)/SUB*100:0,gw=g?Math.round(SUB*.2*g.count)/SUB*100:0;
+  $("#bn").style.width=Math.min(nw,100)+"%";
+  $("#bg").style.left=Math.min(nw,100)+"%";$("#bg").style.width=Math.min(gw,100-Math.min(nw,100))+"%";
+  $("#cmp").textContent="New code is compared with: "+(vuln?(last||"nothing yet"):(promos.map(p=>p.code).join(", ")||"nothing yet"));
+  $("#stat").textContent=t<=CR?"Total fits in the €66.00 credit. Checkout is open.":"Total is above the €66.00 credit. Checkout is closed.";
+  $("#paid").classList.toggle("on",done);
+  document.querySelectorAll(".cp,#replay,#mv,#mp").forEach(b=>b.disabled=busy||(done&&b.classList.contains("cp")));
+  let h;
+  if(done)h="Order placed with a €0 total. Those are the same four coupon requests as in the writeup.";
+  else if(!vuln)h=promos.length?"Each code can be applied once, so the best you can reach is 50% off. Switch back to the bug to compare.":"Patched mode: try any sequence you like.";
+  else if(!promos.length)h="Apply NEWS30, then apply it again. The server says no.";
+  else if(t>CR&&last)h="The server only remembers "+last+". Apply the other coupon, then "+last+" is allowed again.";
+  else h="Total fits the credit. Checking out...";
+  $("#hint").textContent=h;
+  if(!done&&!busy&&t<=CR&&promos.length)checkout();
+}
+function apply(code){
+  log("POST /api/cart/coupon  "+JSON.stringify({code}),"",false);
+  const dup=vuln?last===code:promos.some(p=>p.code===code);
+  if(dup){
+    $("#log").lastChild.textContent=JSON.stringify({ok:false,error:"coupon_already_applied",message:"Coupon already applied."});
+    $("#log").lastChild.classList.add("err");
+    errs++;const r=$("#rc");r.classList.remove("shake");void r.offsetWidth;r.classList.add("shake");
+  }else{
+    const e=promos.find(p=>p.code===code);e?e.count++:promos.push({code,count:1});last=code;
+    const{d,t}=calc();
+    $("#log").lastChild.textContent=JSON.stringify({ok:true,message:P[code]+"% promotion applied.",cart:{discount:d,total:t,promotions:promos}});
+  }
+  render();
+}
+function checkout(){
+  log("POST /api/checkout  {}",JSON.stringify({ok:true,receipt:{orderId:"BLE-57EF913597",paid:0,credit:CR,flag:FLAG}}),false);
+  done=true;render();
+}
+function reset(){promos=[];last=null;done=false;errs=0;$("#log").innerHTML="";render()}
+function setMode(v){if(busy)return;vuln=v;$("#mv").setAttribute("aria-pressed",v);$("#mp").setAttribute("aria-pressed",!v);reset()}
+
+document.querySelectorAll(".cp").forEach(b=>b.onclick=()=>{if(!busy&&!done)apply(b.dataset.c)});
+$("#rs").onclick=()=>{if(!busy)reset()};
+$("#mv").onclick=()=>setMode(true);
+$("#mp").onclick=()=>setMode(false);
+$("#replay").onclick=async()=>{
+  if(busy)return;
+  vuln=true;$("#mv").setAttribute("aria-pressed",true);$("#mp").setAttribute("aria-pressed",false);
+  reset();busy=true;render();
+  for(const c of["NEWS30","NEWS30","NIGHT20","NEWS30","NIGHT20"]){await sleep(calm?200:750);apply(c)}
+  await sleep(calm?200:750);checkout();busy=false;render();
+};
+render();
+</script>
+</body>
+</html>
